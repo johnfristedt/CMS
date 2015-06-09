@@ -1,0 +1,65 @@
+﻿.icon-pen {
+    transform: rotate(45deg);
+    background: white;
+    width: 6px;
+    height: 21px;
+    margin: 0px 8px;
+    position: relative;
+    top: -2px;
+    right: -2px;
+    
+    z-index: 0;
+}
+
+.icon-pen:before {
+    background: white;
+    content: "";
+    width: 6px;
+    height: 4px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-bottom: 1px solid black;
+}
+
+.icon-pen:after {
+    width: 0px; 
+	height: 0px;
+    content: "";
+	border-left: 3px solid transparent;
+	border-right: 3px solid transparent;
+	
+	border-top: 6px solid white;
+    
+    position: absolute;
+    bottom: -7px;
+    left: 0px;
+    
+    z-index: -1;
+}
+
+.icon-pen, .icon-pen:before {
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.icon-plus {
+    background: white;
+    width: 5px;
+    height: 21px;
+    position: relative;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 10px;
+}
+
+.icon-plus:before {
+    background: white;
+    content: "";
+    width: 21px;
+    height: 5px;
+    position: absolute;
+    top: 7.5px;
+    left: -8px;
+    border-radius: 10px;
+}

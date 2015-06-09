@@ -1,0 +1,24 @@
+﻿@model IEnumerable<CMS.Models.ViewModels.ThreadViewModel>
+
+@{
+    ViewBag.Title = "Board";
+}
+
+<h2>Board</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateThread", "Forum")
+</p>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-1">
+        @Html.ActionLink(item.Name, "Thread", new { id = item.Id })
+        <div class="col-lg-2">
+            @foreach (var post in item.Posts)
+            {
+                <div class="post-preview">@post.Content.Substring(0, Math.Min(post.Content.Length, 50))</div>
+            }
+        </div>
+    </div>
+}

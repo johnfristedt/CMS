@@ -1,0 +1,33 @@
+﻿body {
+    padding-top: 50px;
+}
+
+.form-control {
+    max-width: 400px;
+}
+
+.editor-field textarea {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+}
+
+.bar-button {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+    margin: 8px 0 0 8px;
+
+    background-color: rgba(0,0,0,0);
+}
+
+.left {
+    float: left;
+}
+
+.center {
+    margin: auto;
+}

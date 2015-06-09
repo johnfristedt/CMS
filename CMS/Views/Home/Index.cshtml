@@ -1,0 +1,17 @@
+﻿@model IEnumerable<CMS.Models.ViewModels.BoardViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<h4>Boards</h4>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-8">
+        @Html.ActionLink(item.Name, "Board", new { id = item.Id })
+    </div>
+}

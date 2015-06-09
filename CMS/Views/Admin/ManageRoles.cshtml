@@ -1,0 +1,19 @@
+﻿@model CMS.Models.ViewModels.EditViewModels.EditRoleViewModel
+
+@{
+    ViewBag.Title = "ManageRoles";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Role Manager</h2>
+
+@Html.Partial("_CreateRolePartial")
+
+@Html.Partial("_UsersInRole", Model)
+
+@section Scripts {
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/admin-edit-role.js"></script>
+}
