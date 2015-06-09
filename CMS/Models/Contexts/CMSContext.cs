@@ -7,13 +7,15 @@ using System.Web;
 
 namespace CMS.Models.Contexts
 {
-    public class CommunityContext : DbContext
+    public class CMSContext : DbContext
     {
         public DbSet<Board> Boards { get; set; }
         public DbSet<Thread> Threads { get; set; }
         public DbSet<Post> Posts { get; set; }
 
-        public CommunityContext(string connection)
+        public DbSet<Page> Pages { get; set; }
+
+        public CMSContext(string connection)
             : base(connection)
         {
         }

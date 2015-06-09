@@ -17,6 +17,6 @@ namespace CMS.Models.Repositories
         void CreateBoard(CreateBoardViewModel model);
         void CreateThread(CreateThreadViewModel model);
 
-        User GetUser(string username);
+        void CreatePage(CreatePageViewModel model);
     }
 }

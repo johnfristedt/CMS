@@ -17,7 +17,7 @@ namespace CMS
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<CMS.Models.Contexts.CommunityContext>(null);
+            Database.SetInitializer<CMS.Models.Contexts.CMSContext>(null);
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
@@ -26,6 +26,7 @@ namespace CMS
             Mapper.CreateMap<Post, PostViewModel>();
 
             Mapper.CreateMap<CreateBoardViewModel, Board>();
+            Mapper.CreateMap<CreatePageViewModel, Page>();
 
             Mapper.CreateMap<string, SelectListItem>()
                 .ForMember(item => item.Text, x => x.MapFrom(s => s))

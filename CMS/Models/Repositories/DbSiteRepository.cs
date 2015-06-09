@@ -17,7 +17,7 @@ namespace CMS.Models.Repositories
 
         public EntityModels.Board[] GetBoards()
         {
-            using (var db = new CommunityContext(activeConnection))
+            using (var db = new CMSContext(activeConnection))
             {
                 return db.Boards.ToArray();
             }
@@ -25,7 +25,7 @@ namespace CMS.Models.Repositories
 
         public EntityModels.Thread[] GetThreadsForBoard(int boardId)
         {
-            using (var db = new CommunityContext(activeConnection))
+            using (var db = new CMSContext(activeConnection))
             {
                 var threads = db.Threads.Where(t => t.BoardId == boardId).ToArray();
 
@@ -44,7 +44,7 @@ namespace CMS.Models.Repositories
 
         public EntityModels.Post[] GetPostsForThread(int threadId)
         {
-            using (var db = new CommunityContext(activeConnection))
+            using (var db = new CMSContext(activeConnection))
             {
                 return db.Posts.Where(p => p.ThreadId == threadId).ToArray();
             }
@@ -52,7 +52,7 @@ namespace CMS.Models.Repositories
 
         public void CreateBoard(ViewModels.CreateViewModels.CreateBoardViewModel model)
         {
-            using (var db = new CommunityContext(activeConnection))
+            using (var db = new CMSContext(activeConnection))
             {
                 db.Boards.Add(Mapper.Map<Board>(model));
                 db.SaveChanges();
@@ -62,19 +62,20 @@ namespace CMS.Models.Repositories
 
         public void CreateThread(ViewModels.CreateViewModels.CreateThreadViewModel model)
         {
-            using (var db = new CommunityContext(activeConnection))
+            using (var db = new CMSContext(activeConnection))
             {
                 db.Threads.Add(Mapper.Map<Thread>(model));
                 db.SaveChanges();
             }
         }
 
-
-        public User GetUser(string username)
+        public void CreatePage(ViewModels.CreateViewModels.CreatePageViewModel model)
         {
-            var entity = Membership.GetUser(username);
-
-            return new User { UserName = entity.UserName, LastActivityDate = entity.LastActivityDate };
+            using (var db = new CMSContext(activeConnection))
+            {
+                db.Pages.Add(Mapper.Map<Page>(model));
+                db.SaveChanges();
+            }
         }
     }
 }

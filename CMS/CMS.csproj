@@ -167,12 +167,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Contexts\CommunityContext.cs" />
+    <Compile Include="Models\Contexts\CMSContext.cs" />
     <Compile Include="Models\DataModels\RoleInfo.cs" />
     <Compile Include="Models\DataModels\UserRoleInfo.cs" />
     <Compile Include="Models\DataModels\UpdateRoleModel.cs" />
     <Compile Include="Models\DataModels\UpdateUserModel.cs" />
     <Compile Include="Models\EntityModels\Board.cs" />
+    <Compile Include="Models\EntityModels\Page.cs" />
     <Compile Include="Models\EntityModels\Post.cs" />
     <Compile Include="Models\EntityModels\Thread.cs" />
     <Compile Include="Models\EntityModels\User.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Models\Repositories\ISiteRepository.cs" />
     <Compile Include="Models\ViewModels\BoardViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateViewModels\CreateBoardViewModel.cs" />
+    <Compile Include="Models\ViewModels\CreateViewModels\CreatePageViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateViewModels\CreateRoleViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateViewModels\CreateThreadViewModel.cs" />
     <Compile Include="Models\ViewModels\EditViewModels\EditRoleViewModel.cs" />
@@ -202,6 +204,7 @@
     <Content Include="Views\Admin\ManageRoles.cshtml" />
     <Content Include="Views\Shared\_CreateRolePartial.cshtml" />
     <Content Include="Views\Shared\_UsersInRole.cshtml" />
+    <Content Include="Views\CMS\CreatePage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

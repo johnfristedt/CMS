@@ -18,13 +18,14 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     @Html.Partial("_SidebarBrand")
+                </li>
                 <li>
                     <a href="#" class="sidebar-toggle" data-target="#sidebar-collapse-1">
                         <div class="dropdown-arrow"></div> Add content
                     </a>
 
                     <ul class="sidebar-collapse" id="sidebar-collapse-1">
-                        <li>@Html.ActionLink("Add board", "CreateBoard", new { }, new { @class = "sidebar-link" })</li>
+                        <li>@Html.ActionLink("New page", "CreatePage", new { }, new { @class = "sidebar-link" })</li>
                     </ul>
                 </li>
             </ul>

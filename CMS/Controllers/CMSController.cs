@@ -24,6 +24,22 @@ namespace CMS.Controllers
             return View();
         }
 
+        public ActionResult CreatePage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public bool CreatePage(CreatePageViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return false;
+
+            repository.CreatePage(model);
+
+            return true;
+        }
+
         public ActionResult CreateBoard()
         {
             return View();
