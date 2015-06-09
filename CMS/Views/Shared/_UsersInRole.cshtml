@@ -1,48 +1,53 @@
 ﻿@model CMS.Models.ViewModels.EditViewModels.EditRoleViewModel
-@using CMS.Models.ViewModels.EditViewModels
 
 @using (Html.BeginForm())
-
+{
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <a href="#" class="control-toggle" data-target="#admin-edit-role-control">
+            <div class="dropdown-arrow"></div> Edit role
+        </a>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Roles, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Role", Model.Roles, new { @id = "role-select" })
-                <span id="edit-role-success" class="col-lg-1"></span>
-            </div>
-        </div>
+        <div class="collapse-control" id="admin-edit-role-control">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UsersInRole, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.ListBox("AvailableUsers", Model.AvailableUsers, new { @id = "available-users", @class = "user-box" })
-                <table class="listbox-buttons">
-                    <tr>
-                        <td>
-                            <input type="button" value=">" id="add-user" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="button" value="<" id="remove-user" />
-                        </td>
-                    </tr>
-                </table>
-                @Html.ListBox("RoleUsers", Model.UsersInRole, new { @id = "role-users", @class = "user-box" })
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Roles, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Role", Model.Roles, new { @id = "role-select" })
+                    <span id="edit-role-success" class="col-lg-1"></span>
+                </div>
             </div>
 
-        </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.UsersInRole, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.ListBox("AvailableUsers", Model.AvailableUsers, new { @id = "available-users", @class = "user-box" })
+                    <table class="listbox-buttons">
+                        <tr>
+                            <td>
+                                <input type="button" value=">" id="add-user" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="<" id="remove-user" />
+                            </td>
+                        </tr>
+                    </table>
+                    @Html.ListBox("RoleUsers", Model.UsersInRole, new { @id = "role-users", @class = "user-box" })
+                </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Update" class="btn btn-default" id="submit-role-update" />
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Update" class="btn btn-default" id="submit-role-update" />
+                </div>
             </div>
         </div>
     </div>
-    }
+}

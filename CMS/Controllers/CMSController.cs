@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace CMS.Controllers
 {
-    [Authorize(Roles="ROLE_ADMIN")]
+    [Authorize(Roles="ROLE_ADMIN, ROLE_CMS_ADMIN")]
     public class CMSController : Controller
     {
         ISiteRepository repository;

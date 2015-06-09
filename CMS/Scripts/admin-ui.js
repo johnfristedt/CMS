@@ -15,6 +15,12 @@ for (var i = 0; i < m.length; i++) {
     localStorage.setItem('sidebar-collapse-' + i, null);
 }
 
+$('.control-toggle').click(function (e) {
+    e.preventDefault();
+    $(this).children('.dropdown-arrow').toggleClass('dropdown-arrow-open');
+    $($(this).attr('data-target')).slideToggle('fast');
+});
+
 $('.sidebar-toggle').click(function (e) {
     e.preventDefault();
     $(this).children('.dropdown-arrow').toggleClass('dropdown-arrow-open');

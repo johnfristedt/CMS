@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CMS.Models.DataModels;
 using CMS.Models.Repositories;
+using CMS.Models.ViewModels;
 using CMS.Models.ViewModels.CreateViewModels;
 using CMS.Models.ViewModels.EditViewModels;
 using System;
@@ -12,7 +13,7 @@ using System.Web.Security;
 
 namespace CMS.Controllers
 {
-    [Authorize(Roles="ROLE_ADMIN")]
+    [Authorize(Roles = "ROLE_ADMIN, ROLE_CMS_ADMIN")]
     public class AdminController : Controller
     {
         ISiteRepository repository;
@@ -46,12 +47,18 @@ namespace CMS.Controllers
 
         public ActionResult ManageRoles()
         {
-            EditRoleViewModel vm = new EditRoleViewModel
+            ManageRolesViewModel vm = new ManageRolesViewModel()
             {
-                Roles = Mapper.Map<List<SelectListItem>>(Roles.GetAllRoles()),
-                UsersInRole = new List<SelectListItem>(),
-                AvailableUsers = new List<SelectListItem>()
+                CreateRoleViewModel = new CreateRoleViewModel(),
+                EditRoleViewModel = new EditRoleViewModel
+                {
+                    Roles = Mapper.Map<List<SelectListItem>>(Roles.GetAllRoles()),
+                    UsersInRole = new List<SelectListItem>(),
+                    AvailableUsers = new List<SelectListItem>()
+                }
             };
+
+
 
             return View(vm);
         }
@@ -81,11 +88,11 @@ namespace CMS.Controllers
 
         public ActionResult EditUser()
         {
-            EditUserViewModel vm = new EditUserViewModel 
-            { 
+            EditUserViewModel vm = new EditUserViewModel
+            {
                 Users = Mapper.Map<List<SelectListItem>>(Membership.GetAllUsers()),
                 UserRoles = new List<SelectListItem>(),
-                AvailableRoles = new List<SelectListItem>() 
+                AvailableRoles = new List<SelectListItem>()
             };
 
             return View(vm);
@@ -98,10 +105,10 @@ namespace CMS.Controllers
                 return false;
 
             foreach (var role in model.UserRoles)
-	        {
+            {
                 if (!Roles.IsUserInRole(model.User, role))
                     Roles.AddUserToRole(model.User, role);
-	        }
+            }
 
             var currentRoles = Roles.GetRolesForUser(model.User);
 
@@ -110,7 +117,7 @@ namespace CMS.Controllers
                 if (!model.UserRoles.Contains(role) && currentRoles.Contains(role))
                     Roles.RemoveUserFromRole(model.User, role);
             }
-            
+
             return true;
         }
 

@@ -1,3 +1,6 @@
 ﻿@Html.ActionLink("Home", "Index", "Home")
 @Html.ActionLink("CMS", "Index", "CMS")
-@Html.ActionLink("Admin", "Index", "Admin")
+@if (User.IsInRole("ROLE_ADMIN"))
+{
+    @Html.ActionLink("Admin", "Index", "Admin")
+}

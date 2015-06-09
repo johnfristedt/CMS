@@ -29,9 +29,9 @@
                     }
                     else
                     {
-                        if (User.IsInRole("ROLE_ADMIN"))
+                        if (User.IsInRole("ROLE_ADMIN") || User.IsInRole("ROLE_CMS_ADMIN"))
                         {
-                            <li>@Html.ActionLink("Control Panel", "Index", "Admin", new { }, new { @class = "" })</li>
+                            <li>@Html.ActionLink("Control Panel", "Index", "CMS", new { }, new { @class = "" })</li>
                         }
                         <li>@Html.ActionLink("Logout", "Logout", "Account", new { }, new { @class = "" })</li>
                     }
